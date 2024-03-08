@@ -9,6 +9,7 @@ Description:
 """
 import pandas as pd
 import scipy.stats
+from collections import defaultdict
 
 filenames = [
     "physiological_bodylength_w_tail",
@@ -46,7 +47,7 @@ prs2col = {
 }
 
 
-def find_best_pvalues(verbose=False):
+def find_best_pvalues(verbose=False, save=True):
     """
     Find the best p-values for each phenotype based on the highest R-squared value.
 
@@ -113,11 +114,19 @@ def find_best_pvalues(verbose=False):
         # Store the best p-value and corresponding R-squared value for the current phenotype
         best_p[fname] = [p_max, r2_max]
 
+    if save:
+        print('Saving to disk')
+        tmp = defaultdict(list)
+        for fname in filenames:
+            tmp['name'].append(fname)
+            tmp['p_max'].append(best_p[fname][0])
+            tmp['r2_max'].append(best_p[fname][1])
+        pd.DataFrame.from_dict(tmp).to_csv("best_p_values.csv", index=False)
     return best_p
 
 
 # Execute the function to find the best p-values for each phenotype
-best_p_values = find_best_pvalues(verbose=True)
+best_p_values = find_best_pvalues(verbose=False, save=True)
 
 # Print the results
 for name, values in best_p_values.items():
