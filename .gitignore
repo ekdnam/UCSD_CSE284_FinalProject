@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# generated folders
+./out/
+./prs/
+./pvals/
+./valid/
+
 # C extensions
 *.so
 
