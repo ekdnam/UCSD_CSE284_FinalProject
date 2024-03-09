@@ -5,7 +5,7 @@ import requests
 from zipfile import ZipFile
 
 # Data directory relative to utils
-parent_dir = os.path.dirname(os.getcwd())
+parent_dir = os.getcwd()
 data_dir = os.path.join(parent_dir, "data")
 
 # Ensure the data directory exists
