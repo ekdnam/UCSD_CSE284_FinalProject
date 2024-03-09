@@ -5,11 +5,12 @@ import requests
 from zipfile import ZipFile
 
 # Data directory relative to utils
-parent_dir = os.path.dirname(os.getcwd())
-data_dir = os.path.join(parent_dir, 'data') 
+parent_dir = os.getcwd()
+data_dir = os.path.join(parent_dir, "data")
 
 # Ensure the data directory exists
 os.makedirs(data_dir, exist_ok=True)
+
 
 def download_and_extract(name, study, link):
     # Determine the path for the file
@@ -28,23 +29,23 @@ def download_and_extract(name, study, link):
         print(f"Downloading {link}...")
         response = requests.get(link)
         response.raise_for_status()  # This will raise an error for bad responses
-        
+
         # Save the file to the specified path
-        with open(local_filename, 'wb') as f:
+        with open(local_filename, "wb") as f:
             f.write(response.content)
         print(f"Saved {name} to {local_filename}")
-    
+
     # Only create a directory and extract if it's a ZIP file
-    if file_extension == '.zip':
+    if file_extension == ".zip":
         zip_dir = os.path.join(path_dir, name)
         if not os.path.exists(zip_dir):
             os.makedirs(zip_dir, exist_ok=True)
-            with ZipFile(local_filename, 'r') as zip_ref:
+            with ZipFile(local_filename, "r") as zip_ref:
                 zip_ref.extractall(zip_dir)
             print(f"Extracted {name}")
         else:
             print(f"{name} extraction directory already exists. Skipping extraction.")
-        
+
 
 """BMI Dataset
 
@@ -59,15 +60,15 @@ https://library.ucsd.edu/dc/object/bb9156620z
 """
 
 bmi_links = {
-    'readme': 'https://library.ucsd.edu/dc/object/bb9156620z/_1_1.txt',
-    'phenotype_data': 'https://library.ucsd.edu/dc/object/bb9156620z/_2_1.zip',
-    'ld_pruned_genotype_data': 'https://library.ucsd.edu/dc/object/bb9156620z/_3_1.zip',
-    'genetic_relatedness_matrix': 'https://library.ucsd.edu/dc/object/bb9156620z/_5_1.zip',
-    'gwas_summary_files': 'https://library.ucsd.edu/dc/object/bb9156620z/_6_1.zip'
+    "readme": "https://library.ucsd.edu/dc/object/bb9156620z/_1_1.txt",
+    "phenotype_data": "https://library.ucsd.edu/dc/object/bb9156620z/_2_1.zip",
+    "ld_pruned_genotype_data": "https://library.ucsd.edu/dc/object/bb9156620z/_3_1.zip",
+    "genetic_relatedness_matrix": "https://library.ucsd.edu/dc/object/bb9156620z/_5_1.zip",
+    "gwas_summary_files": "https://library.ucsd.edu/dc/object/bb9156620z/_6_1.zip",
 }
 
 for name, link in bmi_links.items():
-    download_and_extract(name, 'bmi', link)
+    download_and_extract(name, "bmi", link)
 
 
 """Psychiatric Dataset

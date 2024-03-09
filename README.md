@@ -39,7 +39,8 @@ This project relies on a Conda environment for managing dependencies. Follow the
    ```
 
 3. **Install the Packages**: Ensure you have already installed the following Python packages.
-   ```matplotlib
+   ```
+   matplotlib
    numpy
    pandas
    seaborn
@@ -52,7 +53,38 @@ This project relies on a Conda environment for managing dependencies. Follow the
 
 Run download_data.py which will pull GWAS datasets from the studies.
 
-`python utils/download_data.py`
+```bash
+python utils/download_data.py
+```
+
+After this, unzip `data/bmi/ld_pruned_genotype_data/LD_pruned_PLINK.zip` to `data/bmi/ld_pruned_genotype_data/`.
+
+Now, run
+```bash
+python utils/write_prs_files.py
+```
+
+This writes the prs files for all the phenotypes we have to `./prs`.
+
+Now, execute
+```bash
+$ chmod +x scripts/generate_pvals.sh
+$ chmod +x scripts/generate_valid_data.sh
+$ chmod +x scripts/prs_scoring.sh
+
+$ ./scripts/generate_pvals.sh
+$ ./scripts/generate_valid_data.sh
+$ ./scripts/prs_scoring.sh
+```
+
+This generates the pvals, valid data, and runs the prs scoring using plink.
+
+Finally, run
+```bash
+python utils/generate_r2.py
+```
+
+This generates the r2 scores for each phenotype and stores the best p values for each to a csv.
 
 
 ## Contact
