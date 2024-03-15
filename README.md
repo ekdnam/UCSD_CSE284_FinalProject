@@ -16,10 +16,21 @@ The primary aim of this project is to use GWAS summary statistics from the afore
 
 ## Dataset
 
-The core dataset for this project comes from a Genome-Wide Association Study (GWAS) that identified multiple loci for body weight, adiposity, and fasting glucose in 3,173 outbred rats.
+### Primary Dataset
+The core dataset for this project originates from a Genome-Wide Association Study (GWAS) on 3,173 outbred rats, identifying multiple loci related to body weight, adiposity, and fasting glucose levels.
 
-- **Study Citation**: Chitre, A. S., Polesskaya, O., Holl, K., Gao, J., Cheng, R., Bimschleger, H., Garcia Martinez, A., George, T., Gileta, A. F., Han, W., Horvath, A., Hughson, A., Ishiwari, K., King, C. P., Lamparelli, A., Versaggi, C. L., Martin, C., St. Pierre, C. L., Tripi, J. A., … Palmer, Abraham A.,Solberg Woods, L. C. (2022). Data from: Genome‐Wide Association Study in 3,173 Outbred Rats Identifies Multiple Loci for Body Weight, Adiposity, and Fasting Glucose. UC San Diego Library Digital Collections. [DOI: 10.6075/J0Q240F0](https://doi.org/10.6075/J0Q240F0).
-- 
+- **Study Citation**: Chitre, A. S., Polesskaya, O., Holl, K., et al. (2022). Data from: Genome‐Wide Association Study in 3,173 Outbred Rats Identifies Multiple Loci for Body Weight, Adiposity, and Fasting Glucose. UC San Diego Library Digital Collections. [DOI: 10.6075/J0Q240F0](https://doi.org/10.6075/J0Q240F0).
+
+### Secondary Dataset
+Our analysis also leverages genotype data from the Heterogeneous Stock (HS) Rat Genotypes, Version 1, encompassing genotypes derived from rats used in more than 10 research projects. This dataset enables comprehensive GWAS and related analyses through its detailed genotypic information.
+
+- **Dataset Citation**: Palmer, Abraham A. (2023). Heterogeneous Stock (HS) Rat Genotypes, Version 1. In Genotype Data from: NIDA Center for GWAS in Outbred Rats. UC San Diego Library Digital Collections. [DOI: 10.6075/J0028RR4](https://doi.org/10.6075/J0028RR4).
+- **Collection Period**: Data collected from 2014 to 2019. Version date: 2019-08-15.
+- **Genomic Reference**: Rat Genome assembly Rnor_6.0.
+- **Processing Details**: The dataset involves comprehensive genotyping and imputation protocols, utilizing tools such as Cutadapt v1.9.1 for quality trimming and BWA-0.7.12 for read alignment against the rn6 rat genome assembly. Further alignment improvements and variant calling were performed using GATK IndelRealginer v3.5 and ANGSD under the SAMtools model. Beagle v4.1 and IMPUTE2 were employed for genotyping and imputation, using a reference panel from HS rat founder and other inbred rat strains.
+
+This secondary dataset offers valuable genetic information, enhancing our capacity to perform robust GWAS analyses in conjunction with the primary dataset to explore the genetic underpinnings of body weight, adiposity, and related metabolic traits in rats.
+
 ## Methodology
 
 1. **Polygenic Risk Score Calculation**: Utilizing GWAS summary statistics, we calculate PRS for individual genomes within our dataset, focusing on traits with robust genetic signals.
