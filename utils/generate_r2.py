@@ -115,12 +115,12 @@ def find_best_pvalues(verbose=False, save=True):
         best_p[fname] = [p_max, r2_max]
 
     if save:
-        print('Saving to disk')
+        print("Saving to disk")
         tmp = defaultdict(list)
         for fname in filenames:
-            tmp['name'].append(fname)
-            tmp['p_max'].append(best_p[fname][0])
-            tmp['r2_max'].append(best_p[fname][1])
+            tmp["name"].append(fname)
+            tmp["p_max"].append(best_p[fname][0])
+            tmp["r2_max"].append(best_p[fname][1])
         pd.DataFrame.from_dict(tmp).to_csv("best_p_values.csv", index=False)
     return best_p
 
