@@ -169,6 +169,51 @@ python utils/generate_r2.py
 
 This generates the r2 scores for each phenotype and stores the best p values for each to a csv.
 
+## Analysis Scripts
+
+### [bmi.ipynb](./analysis/bmi.ipynb)
+
+It facilitates the analysis of Genome-Wide Association Study (GWAS) data related to Body Mass Index (BMI) and body length with tail. The script utilizes a variety of visualization techniques to offer insights into genetic associations within the dataset.
+
+This Python script facilitates the analysis of Genome-Wide Association Study (GWAS) data related to Body Mass Index (BMI) and body length with tail. The script utilizes various visualization techniques to offer insights into genetic associations within the dataset.
+
+- **Data Loading**: The script loads BMI-related data from a CSV file using Pandas, providing easy access to the dataset for further analysis.
+
+- **Visualization Techniques**:
+  - **Histogram of Wald Test p-values**: Illustrates the distribution of significance levels obtained from the Wald test using logarithmic scaling.
+  - **Distribution of Allele Frequency**: Seaborn is used to create a histogram showing the distribution of allele frequencies, aiding in understanding genetic variation.
+  - **Distribution of Effect Sizes**: Visualizes the distribution of effect sizes using a histogram, revealing the strength of associations between genetic variants and BMI.
+  - **Distribution of p-values (-log10 transformed)**: A plot of negative logarithm-transformed p-values highlights significant associations in the dataset.
+  - **Manhattan Plot**: Displays the genomic locations of significant associations, with each point representing a SNP color-coded by chromosome. A red dashed line indicates the Bonferroni-corrected significance threshold.
+  - **QQ Plot of GWAS P-values**: Evaluates the deviation of observed p-values from the expected distribution under the null hypothesis, aiding in dataset quality assessment.
+
+### [prscs.ipynb](./analysis/prscs.ipynb)
+
+Helps handle and analyze SNP data.
+
+- **Data Loading**: Easily load SNP data from files.
+- **Calculate MAF**: Compute Minor Allele Frequency (MAF) to understand allele prevalence.
+- **Filter SNPs**: Identify and save SNPs with rare minor alleles for further analysis.
+- **Access Thousand Genomes Data**: Explore genetic information from the Thousand Genomes project.
+
+This script serves as a valuable resource for researchers and enthusiasts working with genetic data for BMI research.
+
+### [test_plink_on_oft.ipynb](./analysis/test_plink_on_oft.ipynb)
+
+### Phenotype Analysis Overview
+
+This Jupyter notebook is dedicated to analyzing OFT phenotypic data from the './data/oft/phenotypes.csv' file. Here's a brief summary of its key functionalities:
+
+- **Data Loading**: Phenotypic data is loaded from the './data/oft/phenotypes.csv' file using Pandas, enabling efficient data manipulation and analysis.
+
+- **Phenotype-PRS Correlation**: The notebook iterates over each phenotype column in the dataset, calculates the Pearson correlation coefficient between the phenotype and Polygenic Risk Scores (PRS) obtained from './prsice_data/PRSice_custom_pvalue.best', and computes the coefficient of determination (R-squared) to quantify the strength of the relationship.
+
+- **Results Presentation**: For each phenotype, the notebook displays the phenotype name along with its corresponding R-squared value, providing insights into the degree of association between the phenotype and PRS.
+
+### [test_prsice_on_oft.ipynb](./analysis/test_prsice_on_oft.ipynb)
+
+It has more or less the same funcitonalities as above. It tests the prsice outputs against OFT phenotypes.
+
 ## Contact
 
 For any inquiries or contributions to the project, please contact:
