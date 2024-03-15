@@ -48,6 +48,89 @@ This project relies on a Conda environment for managing dependencies. Follow the
    scipy
    ```
 
+## File structure
+
+```
+
+├── Discussion.md
+├── LICENSE
+├── README.md
+├── analysis
+│   ├── bmi.ipynb
+│   ├── generate_r2.ipynb
+│   ├── prscs.ipynb
+│   ├── test.txt
+│   ├── test_plink_on_oft.ipynb
+│   └── test_prsice_on_oft.ipynb
+├── data
+│   ├── bmi
+│   │   ├── genetic_relatedness_matrix
+│   │   │   ├── obesity_published_grm.grm.N.bin
+│   │   │   ├── obesity_published_grm.grm.bin
+│   │   │   └── obesity_published_grm.grm.id
+│   │   ├── genetic_relatedness_matrix.zip
+│   │   ├── gwas_summary_files
+│   │   │   ├── gemma_commands.sh
+│   │   │   ├── physiological_bmi_bodylength_w_tail.csv
+│   │   │   ├── physiological_bmi_bodylength_wo_tail.csv
+│   │   │   ├── physiological_bodylength_w_tail.csv
+│   │   │   ├── physiological_bodylength_wo_tail.csv
+│   │   │   ├── physiological_bodyweight.csv
+│   │   │   ├── physiological_epifat.csv
+│   │   │   ├── physiological_fasting_glucose.csv
+│   │   │   ├── physiological_parafat.csv
+│   │   │   └── physiological_retrofat.csv
+│   │   ├── gwas_summary_files.zip
+│   │   ├── ld_pruned_genotype_data
+│   │   │   ├── LD_pruned_0.95
+│   │   │   │   ├── chr1.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr10.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr11.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr12.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr13.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr14.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr15.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr16.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr17.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr18.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr19.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr2.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr20.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr3.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr4.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr5.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr6.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr7.round2_impute2_3473.bimbam
+│   │   │   │   ├── chr8.round2_impute2_3473.bimbam
+│   │   │   │   └── chr9.round2_impute2_3473.bimbam
+│   │   │   ├── LD_pruned_0.95.zip
+│   │   │   ├── LD_pruned_PLINK
+│   │   │   │   ├── P50_round2_LD_pruned_3473.bed
+│   │   │   │   ├── P50_round2_LD_pruned_3473.bim
+│   │   │   │   └── P50_round2_LD_pruned_3473.fam
+│   │   │   └── LD_pruned_PLINK.zip
+│   │   ├── ld_pruned_genotype_data.zip
+│   │   ├── phenotype_data
+│   │   │   ├── Obesity_normalized_phenotypes_n3173.csv
+│   │   │   ├── Obesity_published_phenotypes_raw_n3173.csv
+│   │   │   └── trait_ontology.xlsx
+│   │   ├── phenotype_data.zip
+│   │   └── readme.txt
+│   └── oft
+│       ├── description.csv
+│       └── phenotypes.csv
+├── run_preliminary_analysis.sh
+├── scripts
+│   ├── generate_pvals.sh
+│   ├── generate_valid_data.sh
+│   └── prs_scoring.sh
+├── test.md
+├── train
+└── utils
+    ├── download_data.py
+    ├── generate_r2.py
+    └── write_prs_files.py
+```
 
 ## Usage
 
@@ -85,7 +168,6 @@ python utils/generate_r2.py
 ```
 
 This generates the r2 scores for each phenotype and stores the best p values for each to a csv.
-
 
 ## Contact
 
